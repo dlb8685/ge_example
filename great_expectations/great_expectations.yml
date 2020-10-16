@@ -31,9 +31,9 @@ datasources:
       drivername: redshift+psycopg2
       host: ${DB_HOST}
       port: ${DB_PORT}
-      username: ${DB_USERNAME}
-      password: ${DB_PW}
-      database: ${DB_DB}
+      username: ${DB_CREDENTIAL_USERNAME}
+      password: ${DB_CREDENTIAL_PASSWORD}
+      database: ${DB_DATABASE}
 
 
 # This config file supports variable substitution which enables: 1) keeping
