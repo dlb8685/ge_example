@@ -30,12 +30,10 @@ datasources:
     credentials:
       drivername: postgresql+psycopg2
       host: redshift-dr.civis.orgs.civis.io
-      port: '5432'
+      port: "5432"
       username: ${DB_CREDENTIAL_USERNAME}
       password: ${DB_CREDENTIAL_PASSWORD}
-      database: dev
-      query:
-        sslmode: prefer
+      database: "dev"
 
 
 # This config file supports variable substitution which enables: 1) keeping
