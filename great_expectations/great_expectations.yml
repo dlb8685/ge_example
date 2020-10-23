@@ -29,7 +29,7 @@ datasources:
     module_name: great_expectations.datasource
     credentials:
       drivername: postgresql+psycopg2
-      host: redshift-dr.civis.orgs.civis.io
+      host: ${DB_HOST}
       port: "5432"
       username: ${DB_CREDENTIAL_USERNAME}
       password: ${DB_CREDENTIAL_PASSWORD}
