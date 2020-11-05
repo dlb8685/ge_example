@@ -20,3 +20,11 @@ batches:
       datasource: my_redshift_db
     expectation_suite_names: # one or more suites may validate against a single batch
       - taxi.demo
+      - taxi_1.demo
+  - batch_kwargs:
+      table: dev_dbryan_test_ge
+      schema: public
+      data_asset_name: dev_dbryan_test_ge
+      datasource: my_redshift_db
+    expectation_suite_names: # one or more suites may validate against a single batch
+      - test_table.demo

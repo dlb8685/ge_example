@@ -1,0 +1,56 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "test_table.demo",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "id"
+      },
+      "meta": {}
+    }
+  ],
+  "meta": {
+    "BasicSuiteBuilderProfiler": {
+      "batch_kwargs": {
+        "data_asset_name": "dev_dbryan_test_ge",
+        "datasource": "my_redshift_db",
+        "schema": "scratch",
+        "table": "dev_dbryan_test_ge"
+      },
+      "created_at": 1603819209.199808,
+      "created_by": "BasicSuiteBuilderProfiler"
+    },
+    "citations": [
+      {
+        "batch_kwargs": {
+          "data_asset_name": "dev_dbryan_test_ge",
+          "datasource": "my_redshift_db",
+          "schema": "scratch",
+          "table": "dev_dbryan_test_ge"
+        },
+        "batch_markers": {
+          "ge_load_time": "20201105T102009.034605Z"
+        },
+        "batch_parameters": null,
+        "citation_date": "20201105T102009.283778Z",
+        "comment": "BasicSuiteBuilderProfiler added a citation based on the current batch."
+      }
+    ],
+    "columns": {
+      "id": {
+        "description": ""
+      },
+      "name": {
+        "description": "Your name is the best name"
+      }
+    },
+    "great_expectations_version": "0.12.4",
+    "notes": {
+      "content": [
+        "_To add additional notes, edit the <code>meta.notes.content</code> field in the appropriate Expectation json file._"
+      ],
+      "format": "markdown"
+    }
+  }
+}
