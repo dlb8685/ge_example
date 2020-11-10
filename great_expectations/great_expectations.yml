@@ -14,13 +14,21 @@ config_version: 2.0
 # You can use the CLI command `great_expectations datasource new` to help you
 # add a new datasource. Read more at https://docs.greatexpectations.io/en/latest/reference/core_concepts/datasource_reference.html
 datasources:
+  # my_postgres_db is for local testing
   my_postgres_db:
-    credentials: ${my_postgres_db}
+    credentials:
+      drivername: postgresql
+      host: localhost
+      port: '65432'
+      username: ge_tutorials
+      password: ge_tutorials
+      database: ge_tutorials
     data_asset_type:
       module_name: great_expectations.dataset
       class_name: SqlAlchemyDataset
     module_name: great_expectations.datasource
     class_name: SqlAlchemyDatasource
+  # my_redshift_db is for use on Platform
   my_redshift_db:
     class_name: SqlAlchemyDatasource
     data_asset_type:
