@@ -37,11 +37,11 @@ datasources:
     module_name: great_expectations.datasource
     credentials:
       drivername: redshift+psycopg2
-      host: "redshift-general.civis.orgs.civis.io"
+      host: ${DB_HOST}
       port: "5432"
       username: ${DB_CREDENTIAL_USERNAME}
       password: ${DB_CREDENTIAL_PASSWORD}
-      database: "dev"
+      database: ${DB_DATABASE}
 
 
 # This config file supports variable substitution which enables: 1) keeping
