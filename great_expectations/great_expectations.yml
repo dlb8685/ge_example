@@ -36,12 +36,14 @@ datasources:
       module_name: great_expectations.dataset
     module_name: great_expectations.datasource
     credentials:
-      drivername: redshift+psycopg2
+      drivername: postgresql+psycopg2
       host: ${DB_HOST}
       port: "5432"
       username: ${DB_CREDENTIAL_USERNAME}
       password: ${DB_CREDENTIAL_PASSWORD}
       database: ${DB_DATABASE}
+      query:
+        sslmode: prefer
 
 
 # This config file supports variable substitution which enables: 1) keeping
