@@ -13,17 +13,17 @@ validation_operator_name: action_list_operator
 # names. A checkpoint can have one or more batches. This makes deploying
 # Great Expectations in your pipelines easy!
 batches:
-  - batch_kwargs:
-      table: yellow_tripdata_staging
-      schema: scratch
-      data_asset_name: yellow_tripdata_staging
-      datasource: my_redshift_db
-    expectation_suite_names: # one or more suites may validate against a single batch
-      - taxi.demo
-      - taxi_1.demo
+  #- batch_kwargs:
+  #    table: yellow_tripdata_staging
+  #    schema: scratch
+  #    data_asset_name: yellow_tripdata_staging
+  #    datasource: my_redshift_db
+  #  expectation_suite_names: # one or more suites may validate against a single batch
+  #    - taxi.demo
+  #    - taxi_1.demo
   - batch_kwargs:
       table: dev_dbryan_test_ge
-      schema: public
+      schema: scratch
       data_asset_name: dev_dbryan_test_ge
       datasource: my_redshift_db
     expectation_suite_names: # one or more suites may validate against a single batch
