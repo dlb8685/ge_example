@@ -22,7 +22,47 @@ def run_checkpoint(context, checkpoint):
     return results
 
 
-import great_expectations as ge
-context = ge.data_context.DataContext()
-checkpoint = context.get_checkpoint("prod.chk")
-results = run_checkpoint(context, checkpoint)
+
+
+def configure_logging(list_of_modules=None, level=logging.INFO, frmt='%(message)s'):
+    """Takes list of modules sets logging level to ERROR. Default = no modules.
+    Takes level and sets root LOG level. Default = INFO
+    Takes format string and sets format. Default = '%(message)s'.
+
+    Configures two LOG handlers, one for WARNING and higher to stderr
+    (and so printed in red on Platform) and one for INFO and lower to stdout
+    (and so printed in black on Platform)
+    """
+    formatter = logging.Formatter(frmt)
+
+    log = logging.getLogger()
+    log.setLevel(level)
+
+    red_handling = logging.StreamHandler(sys.stderr)
+    red_handling.setLevel(logging.WARNING)
+    red_handling.setFormatter(formatter)
+    log.addHandler(red_handling)
+
+    black_handling = logging.StreamHandler(sys.stdout)
+    black_handling.setLevel(logging.DEBUG)
+    black_handling.setFormatter(formatter)
+
+    # Necessary because default behavior is to put in everything OVER the level in above line
+    # But red_handling already does this for things over INFO and don't want duplicates
+    black_handling.addFilter(_InfoDebugFilter())
+    log.addHandler(black_handling)
+
+    if list_of_modules:
+        for module in list_of_modules:
+            logging.getLogger(module).setLevel(logging.ERROR)
+
+
+if __name__ == "__main__":
+    configure_logging()
+    
+    import great_expectations as ge
+    context = ge.data_context.DataContext()
+    checkpoint = context.get_checkpoint("prod.chk")
+    results = run_checkpoint(context, checkpoint)
+
+
