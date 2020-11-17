@@ -23,6 +23,18 @@ def run_checkpoint(context, checkpoint):
 
 
 
+import sys
+class _InfoDebugFilter(logging.Filter):
+    """Creates a filter for only logging records of INFO level or lower
+    (ie records that should print in black)
+
+    From url-imports/urlimports/util.py
+    """
+
+    def filter(self, record):
+        """Defines the filter for records of INFO level or less"""
+        return record.levelno <= 20  # INFO level
+
 
 def configure_logging(list_of_modules=None, level=logging.INFO, frmt='%(message)s'):
     """Takes list of modules sets logging level to ERROR. Default = no modules.
